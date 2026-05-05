@@ -8,9 +8,9 @@ This file is the source of truth for code generation. Follow it strictly. When i
 
 | Library | Version | Notes |
 |---|---|---|
-| React | 18.3.x | Function components only, no class components |
-| TypeScript | 5.6.x | `strict: true` enabled |
-| Vite | 5.4.x | Build tool |
+| React | 19.x | Function components only, no class components |
+| TypeScript | 6.x | `strict: true` enabled. No `baseUrl` (deprecated in TS6) — use `paths` with `./src/*` |
+| Vite | 8.x | Build tool |
 | TanStack Query | **v5** | Object-form API only. **No callbacks (`onSuccess`, `onError`) inside `useQuery`** — they were removed in v5 |
 | TanStack Router | **v1** | **Code-based routing** (not file-based). No router plugin used |
 | Zustand | **v5** | Use `create<T>()(...)` curried form. **No `setState` outside store actions** |
@@ -24,10 +24,11 @@ This file is the source of truth for code generation. Follow it strictly. When i
 ```bash
 npm run dev      # Vite dev server
 npm run build    # tsc -b && vite build
+npm run lint     # ESLint
 npm run preview  # preview production build
 ```
 
-No test runner, no ESLint, no Prettier configured yet. Do not add them unless explicitly requested.
+No test runner, no Prettier configured yet. Do not add them unless explicitly requested.
 
 ---
 
